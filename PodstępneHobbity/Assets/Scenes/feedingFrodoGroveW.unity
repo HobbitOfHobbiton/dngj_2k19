@@ -302,6 +302,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5697483466926290286, guid: c2c6a2db76f140c4cb018f90b991699b,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5697483466926290285, guid: c2c6a2db76f140c4cb018f90b991699b,
         type: 3}
       propertyPath: playerNr
@@ -521,6 +526,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697483466926290286, guid: c2c6a2db76f140c4cb018f90b991699b,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5697483466926290291, guid: c2c6a2db76f140c4cb018f90b991699b,
         type: 3}
