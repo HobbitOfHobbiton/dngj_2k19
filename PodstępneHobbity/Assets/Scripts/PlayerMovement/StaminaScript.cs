@@ -45,6 +45,7 @@ public class StaminaScript : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, 0, 0);
         transform.position = transform.position + Vector3.up;
         GetComponent<PlayerControlls>().enabled = true;
+        OnGrand = false;
     }
 
     void EndOfStamina()
