@@ -44,7 +44,7 @@ public class PlayerControlls : MonoBehaviour
 
         Rotate();
 
-        characterAnimator.SetMoveVelocity(movementDirection.x);
+        characterAnimator.SetMoveVelocity(movementDirection.x / 1.5f);
     }
 
     void Rotate()
