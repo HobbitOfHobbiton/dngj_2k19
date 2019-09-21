@@ -34,6 +34,6 @@ public class CharacterAnimator : MonoBehaviour
 
     public void CheckDamage()
     {
-
+        Debug.Log("CHECKING DAMAGE");
     }
 }
