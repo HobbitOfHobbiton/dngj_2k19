@@ -6,10 +6,12 @@ using UnityEngine;
 public class CharacterAnimator : MonoBehaviour
 {
     private Animator _animator;
+    private DamageTrigger damageTrigger;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
+        damageTrigger = transform.parent.GetComponentInChildren<DamageTrigger>();
     }
 
     public void SetMoveVelocity(float velocity)
@@ -34,6 +36,6 @@ public class CharacterAnimator : MonoBehaviour
 
     public void CheckDamage()
     {
-
+        damageTrigger.ApplyDamageToAllVulnerableInRange();
     }
 }

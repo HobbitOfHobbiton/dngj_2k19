@@ -41,6 +41,7 @@ public class PlayerControlls : MonoBehaviour
     {
         GetDirection();
         MovePlayer();
+        GetAttackInput();
 
         Rotate();
 
@@ -99,5 +100,13 @@ public class PlayerControlls : MonoBehaviour
     public void TakeFrodo(Transform Frodo)
     {
 
+    }
+
+    void GetAttackInput()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            characterAnimator.Attack();
+        }
     }
 }

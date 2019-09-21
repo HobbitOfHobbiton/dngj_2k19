@@ -25,9 +25,22 @@ public class health : MonoBehaviour
             Death();
     }
 
+    public void damageOrc(int power)
+    {
+        hp -= power;
+        barOfHp.SetHp(hp, MaxHp);
+        if (hp <= 0)
+            DeathOrc();
+    }
+
     void Death()
     {
         CameraController.Instance.RemoveTarget(transform);
+        Destroy(gameObject);
+    }
+
+    void DeathOrc()
+    {
         Destroy(gameObject);
     }
 }
