@@ -10,6 +10,7 @@ public class SamHelp : MonoBehaviour
     float RangeToHelp = 3f;
 
     StaminaScript FrodoStamina;
+    bool TookFrodo = false;
 
 
     void Start()
@@ -20,9 +21,29 @@ public class SamHelp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position,Frodo.position)<RangeToHelp)
+        Debug.Log("Update");
+        if (TookFrodo == false)
         {
-            Debug.Log("blisko");
+            if (Vector3.Distance(transform.position, Frodo.position) < RangeToHelp)
+            {
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    Frodo.GetComponent<FrodoIsCaring>().enabled = true;
+                    Frodo.GetComponent<FrodoIsCaring>().StartCaring(transform);
+                    TookFrodo = true;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("else");
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Debug.Log("GetKey");
+                Frodo.GetComponent<FrodoIsCaring>().StopCaring();
+                Frodo.GetComponent<FrodoIsCaring>().enabled = false;
+                TookFrodo = false;
+            }
         }
     }
 }

@@ -82,4 +82,9 @@ public class PlayerControlls : MonoBehaviour
             rb.gravityScale = 1f;
         }
     }
+
+    public void TakeFrodo(Transform Frodo)
+    {
+
+    }
 }

@@ -16,14 +16,16 @@ public class StaminaScript : MonoBehaviour
         MaxStamina = Stamina;
     }
 
-    void Update()
+    public int GetStamina ()
     {
-        
+        return Stamina;
     }
 
     public void LoseStamina(int HowMany)
     {
         Stamina -= HowMany;
+        if (Stamina > MaxStamina)
+            Stamina = MaxStamina;
         barOfStamina.SetStamina(Stamina,MaxStamina);
         if (Stamina <= 0)
             EndOfStamina();
