@@ -15,7 +15,7 @@ public class BarOfStamina : MonoBehaviour
         EdgeOfBar = StartScale / (-200);
     }
 
-    public void SetHp(float Stamina, float MaxStamina)
+    public void SetStamina(float Stamina, float MaxStamina)
     {
         Yelow.localScale = new Vector2(StartScale * (Stamina / MaxStamina), Yelow.localScale.y);
         Yelow.localPosition = new Vector3(EdgeOfBar * ((MaxStamina - Stamina) / MaxStamina), Yelow.localPosition.y, -1);
