@@ -16,7 +16,7 @@ public class OrcScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prey = GameObject.Find("Frodo").transform;
+        prey = null;
         rb = GetComponent<Rigidbody2D>();
         attackTimeStamp = Time.time;
     }
@@ -30,7 +30,7 @@ public class OrcScript : MonoBehaviour
         }
     }
 
-    void AssignPrey(Transform soonToBePrey)
+    public void AssignPrey(Transform soonToBePrey)
     {
         prey = soonToBePrey;
     }
