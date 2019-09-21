@@ -34,5 +34,6 @@ public class StaminaScript : MonoBehaviour
         transform.localEulerAngles = new Vector3(0, 0, 90);
         barOfStamina.SetStamina(0, MaxStamina);
         GetComponent<PlayerControlls>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 }

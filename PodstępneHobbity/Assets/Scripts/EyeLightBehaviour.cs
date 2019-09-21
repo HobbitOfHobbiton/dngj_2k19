@@ -15,6 +15,7 @@ public class EyeLightBehaviour : MonoBehaviour
     private float finishedTimeStamp;
 
     private bool isMoving = false;
+    private bool isAtacking = false;
 
     private float leftEdgePos;
     private float rightEdgePos;
@@ -36,23 +37,40 @@ public class EyeLightBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isMoving && Time.time >= finishedTimeStamp + delayTime )
+        if(isAtacking)
         {
-            GoToStartPos();
-            SetLight(true);
+            
         }
-
-        if (isMoving)
+        else
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-
-            if (transform.position.x >= rightEdgePos)
+            if (!isMoving && Time.time >= finishedTimeStamp + delayTime)
             {
-                SetLight(false);
-                delayTime = Random.Range(1, 10);
-                finishedTimeStamp = Time.time;
+                GoToStartPos();
+                SetLight(true);
+            }
+
+            if (isMoving)
+            {
+                transform.position += Vector3.right * speed * Time.deltaTime;
+
+                if (transform.position.x >= rightEdgePos)
+                {
+                    SetLight(false);
+                    delayTime = Random.Range(1, 10);
+                    finishedTimeStamp = Time.time;
+                }
             }
         }
+    }
+
+    public void SauronStop()
+    {
+        isAtacking = true;
+    }
+
+    public void FrodoEscape()
+    {
+        isAtacking = false;
     }
 
     void GoToStartPos()
