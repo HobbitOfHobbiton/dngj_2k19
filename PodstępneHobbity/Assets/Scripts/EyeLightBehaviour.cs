@@ -20,13 +20,13 @@ public class EyeLightBehaviour : MonoBehaviour
     private float rightEdgePos;
 
     private SpriteRenderer rn;
-    private SphereCollider col;
+    private CapsuleCollider2D col;
 
     // Start is called before the first frame update
     void Start()
     {
         rn = GetComponent<SpriteRenderer>();
-        col = GetComponent<SphereCollider>();
+        col = GetComponent<CapsuleCollider2D>();
         delayTime = Random.Range(1, 10);
         finishedTimeStamp = Time.time;
         leftEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x-5f;
