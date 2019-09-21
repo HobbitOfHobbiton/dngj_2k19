@@ -40,7 +40,7 @@ public class PlayerControlls : MonoBehaviour
         GetDirection();
         MovePlayer();
 
-        characterAnimator.SetMoveVelocity(movementDirection.x);
+        characterAnimator.SetMoveVelocity(movementDirection.x / 2);
     }
 
     void GetDirection()

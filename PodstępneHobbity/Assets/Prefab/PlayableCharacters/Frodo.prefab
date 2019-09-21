@@ -108,7 +108,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9e8cd427d27d4cc41ac3fc4cd931dbe0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -493,27 +493,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022062196907331506, guid: f299724501a040b4bba058f6f94b9720,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 81a65eaf6e5a53e4d9dcb94a06ed9cb4,
-        type: 3}
-    - target: {fileID: 4022062196907331506, guid: f299724501a040b4bba058f6f94b9720,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022062196907331506, guid: f299724501a040b4bba058f6f94b9720,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4022062196907331506, guid: f299724501a040b4bba058f6f94b9720,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f299724501a040b4bba058f6f94b9720, type: 3}

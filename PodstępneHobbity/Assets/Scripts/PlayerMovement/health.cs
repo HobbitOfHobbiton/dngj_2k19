@@ -18,6 +18,7 @@ public class health : MonoBehaviour
 
     public void demage(int power)
     {
+        pgx_CameraShaker.Instance.Shake(10);
         hp -= power;
         barOfHp.SetHp(hp, MaxHp);
         if (hp <= 0)

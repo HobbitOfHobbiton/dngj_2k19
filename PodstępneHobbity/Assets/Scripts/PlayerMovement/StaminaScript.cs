@@ -17,6 +17,12 @@ public class StaminaScript : MonoBehaviour
         MaxStamina = Stamina;
     }
 
+    private void Update()
+    {
+        if (OnGrand)
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
     public int GetStamina ()
     {
         return Stamina;
@@ -46,16 +52,18 @@ public class StaminaScript : MonoBehaviour
         transform.position = transform.position + Vector3.up;
         GetComponent<PlayerControlls>().enabled = true;
         OnGrand = false;
+        CameraController.Instance.AddTarget(transform);
     }
 
     void EndOfStamina()
     {
-        Stamina = 0;
         OnGrand = true;
         transform.localEulerAngles = new Vector3(0, 0, 90);
         barOfStamina.SetStamina(0, MaxStamina);
         GetComponent<PlayerControlls>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         //GetComponent<Rigidbody2D>().simulated = false;
+        Stamina = 0;
+        CameraController.Instance.RemoveTarget(transform);
     }
 }
