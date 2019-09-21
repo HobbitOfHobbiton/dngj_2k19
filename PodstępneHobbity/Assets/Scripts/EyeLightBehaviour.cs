@@ -16,11 +16,21 @@ public class EyeLightBehaviour : MonoBehaviour
 
     private bool isMoving = false;
 
+    private float leftEdgePos;
+    private float rightEdgePos;
+
+    private SpriteRenderer rn;
+    private SphereCollider col;
+
     // Start is called before the first frame update
     void Start()
     {
+        rn = GetComponent<SpriteRenderer>();
+        col = GetComponent<SphereCollider>();
         delayTime = Random.Range(1, 10);
         finishedTimeStamp = Time.time;
+        leftEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x-5f;
+        rightEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x+5f;
     }
 
     // Update is called once per frame
@@ -29,16 +39,16 @@ public class EyeLightBehaviour : MonoBehaviour
         if (!isMoving && Time.time >= finishedTimeStamp + delayTime )
         {
             GoToStartPos();
-            isMoving = true;
+            SetLight(true);
         }
 
         if (isMoving)
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
 
-            if (transform.position.x - cameraTransform.position.x >= distanceFromCamera)
+            if (transform.position.x >= rightEdgePos)
             {
-                isMoving = false;
+                SetLight(false);
                 delayTime = Random.Range(1, 10);
                 finishedTimeStamp = Time.time;
             }
@@ -47,8 +57,13 @@ public class EyeLightBehaviour : MonoBehaviour
 
     void GoToStartPos()
     {
-        Vector3 leftEdgePos = Camera.main.ScreenToViewportPoint(new Vector3(0, Camera.main.pixelHeight, 0));
-        Debug.Log(leftEdgePos);
-        transform.position = new Vector3(leftEdgePos.x, transform.position.y, transform.position.z);
+        transform.position = new Vector3(leftEdgePos, transform.position.y, transform.position.z);
+    }
+
+    void SetLight(bool value)
+    {
+        isMoving = value;
+        rn.enabled = value;
+        col.enabled = value;
     }
 }
