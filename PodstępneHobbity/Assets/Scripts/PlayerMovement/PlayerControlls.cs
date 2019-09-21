@@ -14,6 +14,8 @@ public class PlayerControlls : MonoBehaviour
     private float gravityScaleUp = 0.1f;
     [SerializeField]
     private float gravityScaleDown = 1f;
+    [SerializeField]
+    private int JumpCost = 30;
 
     private Vector2 movementDirection = Vector3.zero;
 
@@ -54,6 +56,8 @@ public class PlayerControlls : MonoBehaviour
             isGrounded = false;
             rb.gravityScale = gravityScaleUp;
             movementDirection.y = jumpForce;
+            /// Zabieranie staminy przy skakaniu
+            GetComponent<StaminaScript>().LoseStamina(JumpCost);
         }
     }
 
