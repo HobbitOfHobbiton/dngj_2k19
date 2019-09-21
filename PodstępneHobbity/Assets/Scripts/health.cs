@@ -16,6 +16,12 @@ public class health : MonoBehaviour
         MaxHp = hp;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            demage(10);
+    }
+
     public void demage(int power)
     {
         hp -= power;

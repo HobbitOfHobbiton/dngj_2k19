@@ -12,12 +12,18 @@ public class BarOfHp : MonoBehaviour
     void Start()
     {
         StartScale = Red.localScale.x;
-        EdgeOfBar = (-200) / StartScale;
+        EdgeOfBar = StartScale / (-200) ;
     }
 
-    public void SetHp(int Hp, int MaxHp)
+    public void SetHp(float Hp, float MaxHp)
     {
+        Debug.Log("StartScale = " + StartScale);
+        Debug.Log("Hp = " + Hp);
+        Debug.Log("MaxHp = " + MaxHp);
+        Debug.Log("StartScale * (Hp / MaxHp) = " + StartScale * (Hp / MaxHp));
+        Debug.Log("(Hp / MaxHp) = " + (Hp / MaxHp));
+
         Red.localScale = new Vector2(StartScale * (Hp / MaxHp), Red.localScale.y);
-        Red.localPosition = new Vector2(EdgeOfBar * ((MaxHp - Hp) / MaxHp), Red.localPosition.y);
+        Red.localPosition = new Vector3(EdgeOfBar * ((MaxHp - Hp) / MaxHp), Red.localPosition.y,-1);
     }
 }
