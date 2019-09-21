@@ -15,7 +15,7 @@ public class PlayerAffection : MonoBehaviour
     void Start()
     {
         //rn = GetComponent<SpriteRenderer>();
-        samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();
+//        samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();  //////// ZAKOMĘTOWAŁEM BO PRZESZKADZAŁO
     }
 
     void OnTriggerEnter2D(Collider2D col)
