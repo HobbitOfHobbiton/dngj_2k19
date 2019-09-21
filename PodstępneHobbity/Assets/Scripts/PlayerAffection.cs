@@ -58,7 +58,7 @@ public class PlayerAffection : MonoBehaviour
             //rn.color = new Color(1f, 1f, 1f);
         }
 
-        if (col.gameObject.tag == "Food" && this.name == "Frodo")//TO change to Sam later
+        if (col.gameObject.tag == "Food" && this.name == "Sam")
         {
             Food += 2;
             Destroy(col.gameObject);
