@@ -8,6 +8,7 @@ public class PlayerAffection : MonoBehaviour
 
     private bool isProtected = false;
     private bool isUnderLight = false;
+    private EyeLightBehaviour Sauron;
 
     void Start()
     {
@@ -19,11 +20,11 @@ public class PlayerAffection : MonoBehaviour
         if (col.gameObject.tag == "SauronLight" && this.name == "Frodo")
         {
             isUnderLight = true;
+            Sauron = col.gameObject.GetComponent<EyeLightBehaviour>();
 
             if (!isProtected)
             {
                 GetAffectedByEyeLight();
-                col.gameObject.GetComponent<EyeLightBehaviour>().SauronStop();
             }
         }
 
@@ -57,5 +58,6 @@ public class PlayerAffection : MonoBehaviour
     {
         //rn.color = new Color(100, 0, 0);
         GetComponent<StaminaScript>().LoseStamina(1000);
+        Sauron.SauronStop();
     }
 }
