@@ -9,7 +9,7 @@ public class StaminaScript : MonoBehaviour
     [SerializeField]
     BarOfStamina barOfStamina;
 
-    bool OnGand = false;
+    bool OnGrand = false;
     int MaxStamina;
 
     void Start()
@@ -32,15 +32,16 @@ public class StaminaScript : MonoBehaviour
             EndOfStamina();
         else
         {
-            if (OnGand)
+            if (OnGrand)
             {
-                GetUp()
+                GetUp();
             }
         }
     }
 
     void GetUp()
     {
+        Debug.Log("GET UP");
         transform.localEulerAngles = new Vector3(0, 0, 0);
         transform.position = transform.position + Vector3.up;
         GetComponent<PlayerControlls>().enabled = true;
@@ -48,6 +49,7 @@ public class StaminaScript : MonoBehaviour
 
     void EndOfStamina()
     {
+        OnGrand = true;
         transform.localEulerAngles = new Vector3(0, 0, 90);
         barOfStamina.SetStamina(0, MaxStamina);
         GetComponent<PlayerControlls>().enabled = false;

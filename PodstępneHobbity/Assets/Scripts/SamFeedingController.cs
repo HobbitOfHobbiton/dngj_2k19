@@ -64,7 +64,6 @@ public class SamFeedingController : MonoBehaviour
         if (col.gameObject.name == "Frodo")
         {
             canFeed = true;
-            Debug.Log("CAN FEED");
         }
     }
 
