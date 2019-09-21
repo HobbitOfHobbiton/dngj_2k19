@@ -7,8 +7,6 @@ TagManager:
   - Ground
   - SauronLight
   - ProtectingBoulder
-  - Frodo
-  - Sam
   layers:
   - Default
   - TransparentFX
@@ -18,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - Players
+  - Background
   - 
   - 
   - 
