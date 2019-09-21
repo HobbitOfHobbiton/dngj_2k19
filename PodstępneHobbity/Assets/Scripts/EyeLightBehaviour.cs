@@ -20,11 +20,13 @@ public class EyeLightBehaviour : MonoBehaviour
     private float rightEdgePos;
 
     private SpriteRenderer rn;
+    private SphereCollider col;
 
     // Start is called before the first frame update
     void Start()
     {
         rn = GetComponent<SpriteRenderer>();
+        col = GetComponent<SphereCollider>();
         delayTime = Random.Range(1, 10);
         finishedTimeStamp = Time.time;
         leftEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x-5f;
@@ -37,8 +39,7 @@ public class EyeLightBehaviour : MonoBehaviour
         if (!isMoving && Time.time >= finishedTimeStamp + delayTime )
         {
             GoToStartPos();
-            rn.enabled = true;
-            isMoving = true;
+            SetLight(true);
         }
 
         if (isMoving)
@@ -47,8 +48,7 @@ public class EyeLightBehaviour : MonoBehaviour
 
             if (transform.position.x >= rightEdgePos)
             {
-                isMoving = false;
-                rn.enabled = false;
+                SetLight(false);
                 delayTime = Random.Range(1, 10);
                 finishedTimeStamp = Time.time;
             }
@@ -58,5 +58,12 @@ public class EyeLightBehaviour : MonoBehaviour
     void GoToStartPos()
     {
         transform.position = new Vector3(leftEdgePos, transform.position.y, transform.position.z);
+    }
+
+    void SetLight(bool value)
+    {
+        isMoving = value;
+        rn.enabled = value;
+        col.enabled = value;
     }
 }
