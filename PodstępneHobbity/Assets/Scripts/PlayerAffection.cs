@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAffection : MonoBehaviour
 {
@@ -10,9 +11,32 @@ public class PlayerAffection : MonoBehaviour
     private bool isUnderLight = false;
     private EyeLightBehaviour Sauron;
 
+    [SerializeField]
+    private Text foodText;
+
+    private int food;
+
+    [SerializeField]
+    private int startFood = 4;
+
+    public int Food
+    {
+        get
+        {
+            return food;
+        }
+
+        set
+        {
+            food = value;
+            foodText.text = food.ToString();
+        }
+    }
+
     void Start()
     {
         //rn = GetComponent<SpriteRenderer>();
+        Food = startFood;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -32,6 +56,12 @@ public class PlayerAffection : MonoBehaviour
         {
             isProtected = true;
             //rn.color = new Color(1f, 1f, 1f);
+        }
+
+        if (col.gameObject.tag == "Food" && this.name == "Frodo")//TO change to Sam later
+        {
+            Food += 2;
+            Destroy(col.gameObject);
         }
     }
 
