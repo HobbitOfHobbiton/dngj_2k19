@@ -97,7 +97,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _followSpeed: 5
-  _offset: {x: 0, y: 0, z: -10}
+  _offset: {x: 0, y: 5, z: -10}
 --- !u!1 &4980441152741710416
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,6 +50,7 @@ public class PlayerAffection : MonoBehaviour
         {
             //rn.color = new Color(1f, 1f, 1f);
             isUnderLight = false;
+            Sauron.FrodoEscape();
         }
 
         if (col.gameObject.tag == "ProtectingBoulder" && this.name == "Frodo")
