@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SamFeedingController : MonoBehaviour
 {
@@ -9,12 +10,44 @@ public class SamFeedingController : MonoBehaviour
 
     private PlayerAffection affection;
     private bool canFeed = false;
-    private StaminaScript frodoStamina;
+
+    [SerializeField]
+    private Text foodText;
+
+    private int food;
+
+    private static StaminaScript frodoStamina;
+
+    [SerializeField]
+    private int startFood = 4;
+
+    public int Food
+    {
+        get
+        {
+            return food;
+        }
+
+        set
+        {
+            if ( value >= 0)
+            {
+                if (value < food)
+                {
+                    frodoStamina.LoseStamina(-staminaFeed);
+                }
+
+                food = value;
+            }
+            foodText.text = food.ToString();
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         affection = transform.parent.GetComponent<PlayerAffection>();
+        Food = startFood;
         frodoStamina = GameObject.Find("Frodo").GetComponent<StaminaScript>();
     }
 
@@ -22,9 +55,7 @@ public class SamFeedingController : MonoBehaviour
     {
         if (canFeed && Input.GetKeyDown(KeyCode.RightShift))
         {
-            Debug.Log("FEEDING");
-            affection.Food -= 1;
-            frodoStamina.LoseStamina(-staminaFeed);
+            Food -= 1;
         }
     }
 
@@ -32,8 +63,8 @@ public class SamFeedingController : MonoBehaviour
     {
         if (col.gameObject.name == "Frodo")
         {
-            Debug.Log("CAN FEED FRODO");
             canFeed = true;
+            Debug.Log("CAN FEED");
         }
     }
 
@@ -41,7 +72,6 @@ public class SamFeedingController : MonoBehaviour
     {
         if (col.gameObject.name == "Frodo")
         {
-            Debug.Log("CANT FEED FRODO");
             canFeed = false;
         }
     }

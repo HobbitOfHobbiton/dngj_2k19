@@ -191,6 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   staminaFeed: 40
+  foodText: {fileID: 1808987636}
+  startFood: 4
 --- !u!1 &173819632
 GameObject:
   m_ObjectHideFlags: 0

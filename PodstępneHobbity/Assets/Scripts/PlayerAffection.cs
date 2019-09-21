@@ -10,33 +10,12 @@ public class PlayerAffection : MonoBehaviour
     private bool isProtected = false;
     private bool isUnderLight = false;
     private EyeLightBehaviour Sauron;
-
-    [SerializeField]
-    private Text foodText;
-
-    private int food;
-
-    [SerializeField]
-    private int startFood = 4;
-
-    public int Food
-    {
-        get
-        {
-            return food;
-        }
-
-        set
-        {
-            food = value;
-            foodText.text = food.ToString();
-        }
-    }
+    private static SamFeedingController samFeedingController;
 
     void Start()
     {
         //rn = GetComponent<SpriteRenderer>();
-        Food = startFood;
+        samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -60,7 +39,7 @@ public class PlayerAffection : MonoBehaviour
 
         if (col.gameObject.tag == "Food" && this.name == "Sam")
         {
-            Food += 2;
+            samFeedingController.Food += 1;
             Destroy(col.gameObject);
         }
     }
