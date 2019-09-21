@@ -46,7 +46,7 @@ public class SamFeedingController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        affection = transform.parent.GetComponent<PlayerAffection>();
+        affection = GameObject.Find("Frodo").GetComponent<PlayerAffection>();
         Food = startFood;
         frodoStamina = GameObject.Find("Frodo").GetComponent<StaminaScript>();
     }
