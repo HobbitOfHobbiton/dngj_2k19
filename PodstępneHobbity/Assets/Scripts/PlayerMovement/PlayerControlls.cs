@@ -16,6 +16,8 @@ public class PlayerControlls : MonoBehaviour
     private float gravityScaleDown = 1f;
     [SerializeField]
     private int JumpCost = 30;
+    [SerializeField]
+    private int AttackCost = 10;
 
     private Vector2 movementDirection = Vector3.zero;
 
@@ -29,11 +31,14 @@ public class PlayerControlls : MonoBehaviour
 
     private CharacterAnimator characterAnimator;
 
+    private StaminaScript staminaScript;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponentInChildren<CharacterAnimator>();
+        staminaScript = GetComponent<StaminaScript>();
     }
 
     // Update is called once per frame
@@ -78,7 +83,7 @@ public class PlayerControlls : MonoBehaviour
             movementDirection.y = jumpForce;
             /// Zabieranie staminy przy skakaniu
             if(gameObject.name == "Frodo")
-                GetComponent<StaminaScript>().LoseStamina(JumpCost);
+                staminaScript.LoseStamina(JumpCost);
         }
     }
 
@@ -104,8 +109,11 @@ public class PlayerControlls : MonoBehaviour
 
     void GetAttackInput()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Attack"+playerNr.ToString()))
         {
+            if (gameObject.name == "Frodo")
+                staminaScript.LoseStamina(AttackCost);
+
             characterAnimator.Attack();
         }
     }

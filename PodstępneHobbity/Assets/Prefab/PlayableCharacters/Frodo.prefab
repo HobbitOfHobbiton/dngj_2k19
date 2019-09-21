@@ -1,5 +1,76 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3182076425216786571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6819711859715380426}
+  - component: {fileID: 3466254140162371606}
+  - component: {fileID: 8655225222269582966}
+  m_Layer: 9
+  m_Name: DamageTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6819711859715380426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182076425216786571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5697483466926290280}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3466254140162371606
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182076425216786571}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.1222656, y: 1.746242}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3845315, y: 3.268736}
+  m_EdgeRadius: 0
+--- !u!114 &8655225222269582966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3182076425216786571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24845c7b1eeb2c64fb6fe2c5acfc9c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!1 &5697483466926290282
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +108,7 @@ Transform:
   - {fileID: 2211279064495553339}
   - {fileID: 1241286091330402705}
   - {fileID: 1953472524782534341}
+  - {fileID: 6819711859715380426}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -131,6 +203,7 @@ MonoBehaviour:
   gravityScaleUp: 2
   gravityScaleDown: 1
   JumpCost: 5
+  AttackCost: 10
 --- !u!114 &5697483466926290291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,16 +237,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5697483466926290280}
     m_Modifications:
-    - target: {fileID: 2348827909308275082, guid: f299724501a040b4bba058f6f94b9720,
-        type: 3}
-      propertyPath: m_Name
-      value: Brodo_Rigged
-      objectReference: {fileID: 0}
-    - target: {fileID: 2348827909308275082, guid: f299724501a040b4bba058f6f94b9720,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 5882138243357910567, guid: f299724501a040b4bba058f6f94b9720,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -238,6 +301,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348827909308275082, guid: f299724501a040b4bba058f6f94b9720,
+        type: 3}
+      propertyPath: m_Name
+      value: Brodo_Rigged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348827909308275082, guid: f299724501a040b4bba058f6f94b9720,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8148456418218231701, guid: f299724501a040b4bba058f6f94b9720,
         type: 3}
@@ -509,16 +582,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5697483466926290280}
     m_Modifications:
-    - target: {fileID: 882910710031636791, guid: 652f5b5008a8c9e44b27f54aac595cec,
-        type: 3}
-      propertyPath: m_Name
-      value: pasek Staminy
-      objectReference: {fileID: 0}
-    - target: {fileID: 882910710031636791, guid: 652f5b5008a8c9e44b27f54aac595cec,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6056681721645385529, guid: 652f5b5008a8c9e44b27f54aac595cec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -584,6 +647,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 882910710031636791, guid: 652f5b5008a8c9e44b27f54aac595cec,
+        type: 3}
+      propertyPath: m_Name
+      value: pasek Staminy
+      objectReference: {fileID: 0}
+    - target: {fileID: 882910710031636791, guid: 652f5b5008a8c9e44b27f54aac595cec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8966488518559979848, guid: 652f5b5008a8c9e44b27f54aac595cec,
         type: 3}
       propertyPath: m_Layer
@@ -621,16 +694,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5697483466926290280}
     m_Modifications:
-    - target: {fileID: 460903635572852278, guid: 5b9297da1ebe4bc4ba3dc6a2fa6aa0b2,
-        type: 3}
-      propertyPath: m_Name
-      value: pasek Hp
-      objectReference: {fileID: 0}
-    - target: {fileID: 460903635572852278, guid: 5b9297da1ebe4bc4ba3dc6a2fa6aa0b2,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6784787297055610936, guid: 5b9297da1ebe4bc4ba3dc6a2fa6aa0b2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -695,6 +758,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 460903635572852278, guid: 5b9297da1ebe4bc4ba3dc6a2fa6aa0b2,
+        type: 3}
+      propertyPath: m_Name
+      value: pasek Hp
+      objectReference: {fileID: 0}
+    - target: {fileID: 460903635572852278, guid: 5b9297da1ebe4bc4ba3dc6a2fa6aa0b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8523786030387660361, guid: 5b9297da1ebe4bc4ba3dc6a2fa6aa0b2,
         type: 3}

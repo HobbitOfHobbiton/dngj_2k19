@@ -21,7 +21,6 @@ public class SamHelp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update");
         if (TookFrodo == false)
         {
             if (Vector3.Distance(transform.position, Frodo.position) < RangeToHelp)
