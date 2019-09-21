@@ -57,7 +57,8 @@ public class PlayerControlls : MonoBehaviour
             rb.gravityScale = gravityScaleUp;
             movementDirection.y = jumpForce;
             /// Zabieranie staminy przy skakaniu
-            GetComponent<StaminaScript>().LoseStamina(JumpCost);
+            if(gameObject.name == "Frodo")
+                GetComponent<StaminaScript>().LoseStamina(JumpCost);
         }
     }
 
