@@ -26,6 +26,7 @@ public class health : MonoBehaviour
 
     void Death()
     {
+        CameraController.Instance.RemoveTarget(transform);
         Destroy(gameObject);
     }
 }

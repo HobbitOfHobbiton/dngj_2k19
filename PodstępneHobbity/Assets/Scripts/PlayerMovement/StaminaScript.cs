@@ -46,6 +46,7 @@ public class StaminaScript : MonoBehaviour
         transform.position = transform.position + Vector3.up;
         GetComponent<PlayerControlls>().enabled = true;
         OnGrand = false;
+        CameraController.Instance.AddTarget(transform);
     }
 
     void EndOfStamina()
@@ -56,5 +57,6 @@ public class StaminaScript : MonoBehaviour
         GetComponent<PlayerControlls>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().simulated = false;
+        CameraController.Instance.RemoveTarget(transform);
     }
 }
