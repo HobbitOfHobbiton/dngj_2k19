@@ -23,6 +23,7 @@ public class PlayerAffection : MonoBehaviour
             if (!isProtected)
             {
                 GetAffectedByEyeLight();
+                col.gameObject.GetComponent<EyeLightBehaviour>().SauronStop();
             }
         }
 
@@ -55,5 +56,6 @@ public class PlayerAffection : MonoBehaviour
     void GetAffectedByEyeLight()
     {
         rn.color = new Color(100, 0, 0);
+        GetComponent<StaminaScript>().LoseStamina(1000);
     }
 }
