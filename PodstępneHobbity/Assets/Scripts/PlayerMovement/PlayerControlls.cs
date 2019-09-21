@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerControlls : MonoBehaviour
 {
     [SerializeField]
+    private int playerNr = 0;
+    [SerializeField]
     private float moveSpeed = 10f;
     [SerializeField]
     private float jumpForce = 10f;
@@ -36,7 +38,7 @@ public class PlayerControlls : MonoBehaviour
 
     void GetDirection()
     {
-        float xDir = Input.GetAxisRaw("Horizontal");
+        float xDir = Input.GetAxisRaw("Horizontal"+playerNr.ToString());
 
         movementDirection.x = xDir * moveSpeed;
 
@@ -47,7 +49,7 @@ public class PlayerControlls : MonoBehaviour
             rb.gravityScale = gravityScaleDown;
         }
 
-        if (Input.GetAxisRaw("Vertical") == 1f && isGrounded)
+        if (Input.GetAxisRaw("Vertical"+playerNr.ToString()) == 1f && isGrounded)
         {
             isGrounded = false;
             rb.gravityScale = gravityScaleUp;
