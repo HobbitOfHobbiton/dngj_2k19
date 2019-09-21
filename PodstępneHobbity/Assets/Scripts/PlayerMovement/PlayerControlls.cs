@@ -25,10 +25,13 @@ public class PlayerControlls : MonoBehaviour
 
     private bool isGrounded = false;
 
+    private CharacterAnimator characterAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        characterAnimator = GetComponentInChildren<CharacterAnimator>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,8 @@ public class PlayerControlls : MonoBehaviour
     {
         GetDirection();
         MovePlayer();
+
+        characterAnimator.SetMoveVelocity(movementDirection.x);
     }
 
     void GetDirection()
@@ -53,6 +58,7 @@ public class PlayerControlls : MonoBehaviour
 
         if (Input.GetAxisRaw("Vertical"+playerNr.ToString()) == 1f && isGrounded)
         {
+            characterAnimator.Jump();
             isGrounded = false;
             rb.gravityScale = gravityScaleUp;
             movementDirection.y = jumpForce;
@@ -71,6 +77,7 @@ public class PlayerControlls : MonoBehaviour
     {
         if (col.gameObject.tag == "Ground")
         {
+            characterAnimator.Land();
             isGrounded = true;
             rb.gravityScale = 1f;
         }

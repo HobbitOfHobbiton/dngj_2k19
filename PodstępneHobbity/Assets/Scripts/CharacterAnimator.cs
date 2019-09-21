@@ -14,7 +14,7 @@ public class CharacterAnimator : MonoBehaviour
 
     public void SetMoveVelocity(float velocity)
     {
-        _animator.SetFloat("Horizontal", velocity);
+        _animator.SetFloat("Horizontal", Mathf.Abs(velocity));
     }
 
     public void Attack()
