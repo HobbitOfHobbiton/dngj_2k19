@@ -50,11 +50,12 @@ public class StaminaScript : MonoBehaviour
 
     void EndOfStamina()
     {
+        Stamina = 0;
         OnGrand = true;
         transform.localEulerAngles = new Vector3(0, 0, 90);
         barOfStamina.SetStamina(0, MaxStamina);
         GetComponent<PlayerControlls>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().simulated = false;
+        //GetComponent<Rigidbody2D>().simulated = false;
     }
 }

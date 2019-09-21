@@ -18,7 +18,8 @@ public class Rock : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        Debug.Log("coś trafiło : " + collision.tag);
+        if (collision.gameObject.tag == "Player")
             collision.GetComponent<health>().demage(Demage);
     }
 }
