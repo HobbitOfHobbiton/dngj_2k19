@@ -55,5 +55,6 @@ public class StaminaScript : MonoBehaviour
         barOfStamina.SetStamina(0, MaxStamina);
         GetComponent<PlayerControlls>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().simulated = false;
     }
 }
