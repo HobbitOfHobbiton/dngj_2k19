@@ -66,6 +66,7 @@ public class EyeLightBehaviour : MonoBehaviour
     public void SauronStop()
     {
         isAtacking = true;
+        Debug.Log("SauronStop");
     }
 
     public void FrodoEscape()

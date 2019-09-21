@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class AttackTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private OrcScript orcParent;
+
     void Start()
     {
-        
+        orcParent = transform.parent.GetComponent<OrcScript>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag == "Player" && collision.gameObject.name == "Frodo")
+        {
+            orcParent.AssignPrey(collision.gameObject.transform);
+        }
     }
 }
