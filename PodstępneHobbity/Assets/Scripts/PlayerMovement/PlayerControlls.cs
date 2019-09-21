@@ -23,6 +23,8 @@ public class PlayerControlls : MonoBehaviour
 
     private bool flag = true;
 
+    private float LastVelocyti = 1;//bo patrzy w prawo
+
     private bool isGrounded = false;
 
     private CharacterAnimator characterAnimator;
@@ -40,7 +42,18 @@ public class PlayerControlls : MonoBehaviour
         GetDirection();
         MovePlayer();
 
-        characterAnimator.SetMoveVelocity(movementDirection.x / 2);
+        Rotate();
+
+        characterAnimator.SetMoveVelocity(movementDirection.x);
+    }
+
+    void Rotate()
+    {
+        if((LastVelocyti * movementDirection.x) < 0)
+        {
+            transform.Rotate(new Vector3(0, 180, 0));
+            LastVelocyti = movementDirection.x;
+        }
     }
 
     void GetDirection()
