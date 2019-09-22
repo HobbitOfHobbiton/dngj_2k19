@@ -8,15 +8,47 @@ public class DamageTrigger : MonoBehaviour
 
     [SerializeField]
     private int damage = 50;
+    [SerializeField]
+    float BackPozytionX = 0;
 
-    // Start is called before the first frame update
+    private float StartPozytionX;
+    private float timeToBack = 0;
+    
+
     void Start()
     {
-        
+        StartPozytionX = transform.localPosition.x;
+        TrigerBack();
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        Debug.Log("Colider Wapon pozytion x = " + transform.localPosition.x);
+        if (transform.localPosition.x != BackPozytionX)
+        {
+            timeToBack -= Time.deltaTime;
+            if (timeToBack <= 0)
+            {
+                ApplyDamageToAllVulnerableInRange();
+                TrigerBack();
+                timeToBack = 0.01f;
+            }
+        }
+            
+    }
+
+    public void TrigerFoword()
+    {
+        transform.localPosition = new Vector2(StartPozytionX, transform.localPosition.y);
+    }
+
+    public void TrigerBack()
+    {
+        Debug.Log("Back");
+        transform.localPosition = new Vector2(BackPozytionX, transform.localPosition.y);
+    }
+
+    private void OnAnimatorIK(int layerIndex)
     {
         
     }
