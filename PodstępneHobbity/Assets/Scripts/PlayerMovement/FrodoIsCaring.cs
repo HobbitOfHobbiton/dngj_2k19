@@ -14,7 +14,7 @@ public class FrodoIsCaring : MonoBehaviour
 
     void Update()
     {
-        transform.position = SamTransform.position + Vector3.up;
+        transform.position = SamTransform.position + new Vector3(1,2,0);
     }
 
     public void StopCaring()

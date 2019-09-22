@@ -7,15 +7,19 @@ public class PlayerAffection : MonoBehaviour
 {
     //private SpriteRenderer rn;
 
+    [SerializeField]
     private bool isProtected = false;
     private bool isUnderLight = false;
     private EyeLightBehaviour Sauron;
     private static SamFeedingController samFeedingController;
+    [SerializeField]
+    private SpriteRenderer[] Body;
 
     void Start()
     {
         //rn = GetComponent<SpriteRenderer>();
-//        samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();  //////// ZAKOMĘTOWAŁEM BO PRZESZKADZAŁO
+        samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();
+        Body = transform.GetChild(0).GetComponentsInChildren<SpriteRenderer>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -34,7 +38,9 @@ public class PlayerAffection : MonoBehaviour
         if (col.gameObject.tag == "ProtectingBoulder" && this.name == "Frodo")
         {
             isProtected = true;
+            ChangeColour(Color.gray);
             //rn.color = new Color(1f, 1f, 1f);
+
         }
 
         if (col.gameObject.tag == "Food" && this.name == "Sam")
@@ -55,12 +61,21 @@ public class PlayerAffection : MonoBehaviour
 
         if (col.gameObject.tag == "ProtectingBoulder" && this.name == "Frodo")
         {
+            ChangeColour(new Color(255, 255, 255));
             isProtected = false;
 
             if (isUnderLight)
             {
                 GetAffectedByEyeLight();
             }
+        }
+    }
+
+    void ChangeColour (Color color)
+    {
+        for (int i=0; i< Body.Length; i++)
+        {
+            Body[i].color = color;
         }
     }
 
