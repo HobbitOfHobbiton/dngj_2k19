@@ -96,9 +96,9 @@ public class PlayerControlls : MonoBehaviour
     {
         if (col.gameObject.tag == "Ground")
         {
-            characterAnimator.Land();
             isGrounded = true;
             rb.gravityScale = 1f;
+            characterAnimator.Land();
         }
     }
 
