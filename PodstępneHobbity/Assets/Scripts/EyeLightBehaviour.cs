@@ -7,8 +7,6 @@ public class EyeLightBehaviour : MonoBehaviour
     [SerializeField]
     private float speed = 10f;
     [SerializeField]
-    private Transform cameraTransform;
-    [SerializeField]
     private float distanceFromCamera = 100f;
 
     private float delayTime = 0f;
@@ -30,8 +28,6 @@ public class EyeLightBehaviour : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         delayTime = Random.Range(1, 10);
         finishedTimeStamp = Time.time;
-        leftEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x-5f;
-        rightEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x+5f;
     }
 
     // Update is called once per frame
@@ -75,6 +71,8 @@ public class EyeLightBehaviour : MonoBehaviour
 
     void GoToStartPos()
     {
+        leftEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(0, 0)).x - 5f;
+        rightEdgePos = Camera.main.ViewportToWorldPoint(new Vector3(1, 0)).x + 5f;
         transform.position = new Vector3(leftEdgePos, transform.position.y, transform.position.z);
     }
 
