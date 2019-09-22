@@ -18,6 +18,17 @@ public class SceneScript : MonoBehaviour
         //Test();
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Ring")
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                NextLevel();
+            }
+        }
+    }
+
     void Test()
     {
         if (Input.GetKeyDown(KeyCode.V))
