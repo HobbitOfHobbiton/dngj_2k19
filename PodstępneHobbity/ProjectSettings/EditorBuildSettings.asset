@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plansze do gry/scene_03.unity
     guid: 2b5acaeed6b882a4392e639becb43605
+  - enabled: 1
+    path: Assets/Scenes/Plansze do gry/scene_04.unity
+    guid: b9b45ffdfa281a74b8d7c5cb3e2d9adc
   m_configObjects: {}
