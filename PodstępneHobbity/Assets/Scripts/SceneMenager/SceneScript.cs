@@ -15,13 +15,17 @@ public class SceneScript : MonoBehaviour
 
     void Update()
     {
-        //Test();
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResetLevel();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Ring")
         {
+            Debug.Log("Enter");
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 NextLevel();

@@ -13,7 +13,7 @@ public class AttackTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && collision.gameObject.name == "Frodo")
+        if (collision.tag == "Player" )//&& collision.gameObject.name == "Frodo") Niech biją też Sama
         {
             orcParent.AssignPrey(collision.gameObject.transform);
         }

@@ -57,10 +57,18 @@ public class health : MonoBehaviour
     void Death()
     {
         CameraController.Instance.RemoveTarget(transform);
-        Destroy(gameObject);
+        DestroyDiz();
     }
 
     void DeathOrc()
+    {
+        GetComponent<OrcScript>().enabled = false;
+        //Destroy(gameObject);
+        GetComponent<Animator>().SetTrigger("Death");
+        Invoke("DestroyDiz", 2.0f);
+    }
+
+    void DestroyDiz()
     {
         Destroy(gameObject);
     }
