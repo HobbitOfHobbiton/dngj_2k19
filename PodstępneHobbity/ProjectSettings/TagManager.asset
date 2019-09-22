@@ -8,6 +8,7 @@ TagManager:
   - SauronLight
   - ProtectingBoulder
   - Food
+  - Ring
   layers:
   - Default
   - TransparentFX
