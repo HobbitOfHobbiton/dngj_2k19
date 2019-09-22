@@ -8,12 +8,29 @@ public class health : MonoBehaviour
     int hp = 100 ;
     [SerializeField]
     BarOfHp barOfHp;
+    [SerializeField]
+    private CombatCloud[] combatCloudsToStatify;
+    [SerializeField]
+    private SpriteRenderer[] combatCloudRensToStatify;
+
+    private static CombatCloud[] combatClouds;
+    private static SpriteRenderer[] combatCloudRens;
 
     int MaxHp;
 
     void Start()
     {
         MaxHp = hp;
+
+        if (combatCloudsToStatify != null)
+        {
+            combatClouds = combatCloudsToStatify;
+        }
+
+        if (combatCloudRensToStatify != null)
+        {
+            combatCloudRens = combatCloudRensToStatify;
+        }
     }
 
     public void demage(int power)
@@ -23,6 +40,8 @@ public class health : MonoBehaviour
         barOfHp.SetHp(hp, MaxHp);
         if (hp <= 0)
             Death();
+        
+        ShowCombatCloud();
     }
 
     public void damageOrc(int power)
@@ -31,6 +50,8 @@ public class health : MonoBehaviour
         barOfHp.SetHp(hp, MaxHp);
         if (hp <= 0)
             DeathOrc();
+
+        ShowCombatCloud();
     }
 
     void Death()
@@ -42,5 +63,27 @@ public class health : MonoBehaviour
     void DeathOrc()
     {
         Destroy(gameObject);
+    }
+
+    void ShowCombatCloud()
+    {
+        int randomCloudIndex = Random.Range(0, combatClouds.Length);
+        if (!combatCloudRens[randomCloudIndex].enabled)
+        {
+            combatClouds[randomCloudIndex].Show();
+        }
+        else
+        {
+            foreach(SpriteRenderer ren in combatCloudRens)
+            {
+                int unusedIndex = 0;
+                if (!ren.enabled)
+                {
+                    combatClouds[unusedIndex].Show();
+                    break;
+                }
+                unusedIndex++;
+            }
+        }
     }
 }
