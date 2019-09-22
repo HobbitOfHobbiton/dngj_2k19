@@ -6,15 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestNextLevel/End.unity
-    guid: 8516e7b5f64f2fa4cbce229bc3dd1b21
+    path: Assets/Scenes/Plansze do gry/scene_01.unity
+    guid: 6765185edb94c514586d5660205f39e7
   - enabled: 1
-    path: Assets/Scenes/TestNextLevel/scene_01.unity
-    guid: c2bdd6b8d0576234c93835c2e35b637b
+    path: Assets/Scenes/Plansze do gry/scene_02.unity
+    guid: 64f5bb576fcb5ed4f8c11548d27b940f
   - enabled: 1
-    path: Assets/Scenes/TestNextLevel/scene_02.unity
-    guid: 40e1145ac8e934346a0f47367566128e
-  - enabled: 1
-    path: Assets/Scenes/TestNextLevel/scene_03.unity
-    guid: a437d5f0210fbcb43968d727b86b63a3
+    path: Assets/Scenes/Plansze do gry/scene_03.unity
+    guid: 2b5acaeed6b882a4392e639becb43605
   m_configObjects: {}
