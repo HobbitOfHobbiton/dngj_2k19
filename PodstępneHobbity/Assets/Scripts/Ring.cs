@@ -9,6 +9,7 @@ public class Ring : MonoBehaviour
 
     SpriteRenderer sr;
     BoxCollider2D col;
+    bool OnGround = false;
 
 
     void Start()
@@ -23,7 +24,7 @@ public class Ring : MonoBehaviour
         if (Owner == null)
         {
             sr.enabled = true;
-            col.enabled = true;
+            OnGround = true;
         }
         else
         {
@@ -33,11 +34,11 @@ public class Ring : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player" && OnGround)
         {
             Owner = collision.transform;
             sr.enabled = false;
-            col.enabled = false;
+            OnGround = false;
         }
     }
 }
