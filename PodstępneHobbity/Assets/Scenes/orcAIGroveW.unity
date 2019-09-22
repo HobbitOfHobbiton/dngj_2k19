@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 1492453458}
   - component: {fileID: 1492453457}
   - component: {fileID: 1492453456}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProtectingBoulder
   m_TagString: ProtectingBoulder
   m_Icon: {fileID: 0}
