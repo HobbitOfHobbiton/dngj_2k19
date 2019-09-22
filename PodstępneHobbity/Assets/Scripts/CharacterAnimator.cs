@@ -36,6 +36,8 @@ public class CharacterAnimator : MonoBehaviour
 
     public void CheckDamage()
     {
-        damageTrigger.ApplyDamageToAllVulnerableInRange();
+        damageTrigger.TrigerFoword();
+        //damageTrigger.ApplyDamageToAllVulnerableInRange();
+        //damageTrigger.TrigerBack();
     }
 }

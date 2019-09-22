@@ -32,7 +32,7 @@ public class RockSpawn : MonoBehaviour
 
     void Spawn()
     {
-        GameObject NewRock = Instantiate(Rock, gameObject.transform);
+        GameObject NewRock = Instantiate(Rock, gameObject.transform.parent.parent);
         float XPozytion = Random.value * (Edges[1].position.x - Edges[0].position.x) + Edges[0].position.x;
         float YPozytion = Random.value * (Edges[1].position.y - Edges[0].position.y) + Edges[0].position.y;
         NewRock.transform.position = new Vector2(XPozytion, YPozytion);
