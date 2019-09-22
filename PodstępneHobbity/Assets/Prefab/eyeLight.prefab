@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4748546040917245478}
   - component: {fileID: 4748546040917245479}
   - component: {fileID: 4748546040917245472}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: eyeLight
   m_TagString: SauronLight
   m_Icon: {fileID: 0}
@@ -95,7 +95,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  cameraTransform: {fileID: 0}
   distanceFromCamera: 20
 --- !u!70 &4748546040917245472
 CapsuleCollider2D:

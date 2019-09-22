@@ -16,13 +16,13 @@ public class StaminaScript : MonoBehaviour
     {
         MaxStamina = Stamina;
     }
-
+/*
     private void Update()
     {
         if (OnGrand)
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
-
+*/
     public int GetStamina ()
     {
         return Stamina;

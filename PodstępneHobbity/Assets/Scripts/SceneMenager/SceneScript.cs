@@ -15,7 +15,7 @@ public class SceneScript : MonoBehaviour
 
     void Update()
     {
-        Test();
+        //Test();
     }
 
     void Test()

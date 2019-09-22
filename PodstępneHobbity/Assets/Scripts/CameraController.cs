@@ -13,7 +13,16 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         if (_targetsToFollow.Count == 0)
-            Destroy(this);
+        {
+            PlayerControlls [] players = FindObjectsOfType<PlayerControlls>();
+            _targetsToFollow = new List<Transform>();
+
+            foreach(var pl in players)
+            {
+                _targetsToFollow.Add(pl.transform);
+            }
+        }
+            
 
         Instance = this;
     }
@@ -46,5 +55,7 @@ public class CameraController : MonoBehaviour
     public void RemoveTarget(Transform target)
     {
         _targetsToFollow.Remove(target);
+
+        if (_targetsToFollow.Count == 0) Destroy(this);
     }
 }
