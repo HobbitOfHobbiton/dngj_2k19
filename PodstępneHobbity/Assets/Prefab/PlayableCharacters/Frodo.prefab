@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6819711859715380426}
   - component: {fileID: 3466254140162371606}
   - component: {fileID: 8655225222269582966}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: DamageTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
