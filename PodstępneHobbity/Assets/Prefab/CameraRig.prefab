@@ -93,9 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a18576f2c591df4ab51d1573bf5d8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetsToFollow:
-  - {fileID: 0}
-  - {fileID: 0}
+  _targetsToFollow: []
   _followSpeed: 5
   _offset: {x: 0, y: 5, z: -10}
 --- !u!1 &4980441152741710416
