@@ -18,7 +18,7 @@ public class PlayerAffection : MonoBehaviour
     void Start()
     {
         //rn = GetComponent<SpriteRenderer>();
-        samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();
+        //samFeedingController = GameObject.Find("Sam").GetComponentInChildren<SamFeedingController>();
         Body = transform.GetChild(0).GetComponentsInChildren<SpriteRenderer>();
     }
 
