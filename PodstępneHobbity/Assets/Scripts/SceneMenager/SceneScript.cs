@@ -25,6 +25,7 @@ public class SceneScript : MonoBehaviour
     {
         if (collision.tag == "Ring")
         {
+            transform.GetChild(0).gameObject.SetActive(true);
             Debug.Log("Enter");
             if (Input.GetKeyDown(KeyCode.Return))
             {
