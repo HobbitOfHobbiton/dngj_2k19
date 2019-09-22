@@ -13,9 +13,12 @@ public class OrcScript : MonoBehaviour
     private Transform prey;
     private Rigidbody2D rb;
 
+    private CharacterAnimator characterAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
+        characterAnimator = GetComponent<CharacterAnimator>();
         prey = null;
         rb = GetComponent<Rigidbody2D>();
         attackTimeStamp = Time.time;
@@ -28,6 +31,7 @@ public class OrcScript : MonoBehaviour
         {
             FollowPrey();
         }
+        characterAnimator.SetMoveVelocity(Mathf.Abs(rb.velocity.x));
     }
 
     public void AssignPrey(Transform soonToBePrey)
@@ -52,6 +56,7 @@ public class OrcScript : MonoBehaviour
     {
         if (Time.time - attackTimeStamp >= attackInterval)
         {
+            characterAnimator.Attack();
             attackTimeStamp = Time.time;
             //attack
         }
